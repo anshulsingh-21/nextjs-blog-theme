@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Note</title>
+</head>
+<body>
+
+    <form id="loginForm" onsubmit="login()">
+        <label for="password">Enter Password:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Login</button>
+    </form>
+
+    <div id="content" style="display:none;">
+        <h1>Your Love Paragraph</h1>
+        <p id="loveParagraph">I love you more than words can express.</p>
+        <textarea rows="5" cols="50" id="customLoveParagraph"></textarea>
+        <button onclick="saveLoveParagraph()">Save Custom Paragraph</button>
+    </div>
+
+    <script>
+        function login() {
+            var password = document.getElementById("password").value;
+
+            if (password === "123") {
+                document.getElementById("loginForm").style.display = "none";
+                document.getElementById("content").style.display = "block";
+            } else {
+                alert("Incorrect password. Try again.");
+            }
+
+            // Prevent form submission
+            return false;
+        }
+
+        function saveLoveParagraph() {
+            var customLoveParagraph = document.getElementById("customLoveParagraph").value;
+            document.getElementById("loveParagraph").innerText = customLoveParagraph;
+            alert("Custom love paragraph saved:\n" + customLoveParagraph);
+        }
+    </script>
+
+</body>
+</html>
